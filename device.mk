@@ -241,6 +241,10 @@ MITHORIUM_PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
 # Overlays RRO
 MITHORIUM_PRODUCT_PACKAGES += \
     Mi439FrameworksAOSP \
