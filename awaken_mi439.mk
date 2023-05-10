@@ -19,14 +19,26 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from mi439 device configuration.
 $(call inherit-product, device/xiaomi/mi439/device.mk)
 
-# Inherit from common AOSP configuration
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit from common AwakenOS configuration
+$(call inherit-product, vendor/awaken/config/common_full_phone.mk)
 
-PRODUCT_NAME := aosp_mi439
+PRODUCT_NAME := awaken_mi439
 PRODUCT_DEVICE := mi439
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := MI SDM439
 PRODUCT_MANUFACTURER := Xiaomi
+
+# Build variant
+ifeq ($(GAPPS_BUILD),true)
+	USE_GAPPS := true
+	TARGET_GAPPS_ARCH := arm64
+endif
+
+# Extras
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_SUPPORTS_NEXT_GEN_ASSISTANT := true
+TARGET_INCLUDE_STOCK_ARCORE := true
 
 # Boot animation resolution.
 TARGET_BOOT_ANIMATION_RES := 720
